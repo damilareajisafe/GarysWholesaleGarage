@@ -5,13 +5,15 @@ using System.Text;
 
 namespace Garage
 {
-    public class Tesla : Vehicle  // Electric motorcycle
+    public class Tesla : Vehicle, IElectricVehicle  // Electric motorcycle
     {
         public double BatteryKWh { get; set; }
 
+        public int CurrentChargePercentage { get; set; } = 30;
+
         public void ChargeBattery()
         {
-
+            CurrentChargePercentage = 100;
         }
 
         public override void Drive()
