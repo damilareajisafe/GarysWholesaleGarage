@@ -12,17 +12,22 @@
                 fx, fxs, modelS
             };
 
+            BatteryStation newBatteryStation = new BatteryStation();
+            GasStation newGasStation = new GasStation();
+
             Console.WriteLine("Electric Vehicles");
             foreach(IElectricVehicle ev in electricVehicles)
             {
                 Console.WriteLine($"{ev.CurrentChargePercentage}");
             }
 
-            foreach(IElectricVehicle ev in electricVehicles)
-            {
-                // This should charge the vehicle to 100%
-                ev.ChargeBattery();
-            }
+            //foreach(IElectricVehicle ev in electricVehicles)
+            //{
+            //    // This should charge the vehicle to 100%
+            //    ev.ChargeBattery();
+            //}
+            
+            newBatteryStation.Refuel(electricVehicles);
 
             foreach(IElectricVehicle ev in electricVehicles)
             {
@@ -44,13 +49,15 @@
                 Console.WriteLine($"{gv.CurrentTankPercentage}");
             }
 
-            foreach(IGasVehicle gv in gasVehicles)
-            {
-                // This should completely refuel the gas tank
-                gv.RefuelTank();
-            }
+            //foreach(IGasVehicle gv in gasVehicles)
+            //{
+            //    // This should completely refuel the gas tank
+            //    gv.RefuelTank();
+            //}
 
-            foreach(IGasVehicle gv in gasVehicles)
+            newGasStation.Refuel(gasVehicles);
+
+            foreach (IGasVehicle gv in gasVehicles)
             {
                 Console.WriteLine($"{gv.CurrentTankPercentage}");
             }
